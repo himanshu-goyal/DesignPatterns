@@ -3,4 +3,5 @@
 	- Singleton design pattern is used when we need to ensure that only one object of a particular class is Instantiated. That single instance created is responsible to coordinate actions across the application. 
 	- Advantage: Concurrent access to the resource is well managed by singleton design pattern.
 	- private constructor helps in preventing any external instantiations of objects and sealed will prevent the class inheritances.
-	- Thread safety:
+	- Thread safety: Use lock to make sure only one tread can init the object.
+	- Also make sure to check if instance is null or not before trying lock.
