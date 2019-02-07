@@ -11,11 +11,13 @@ namespace DesignPatterns
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter one of the chars from following to explore the design pattern");
+            Console.WriteLine("Enter one of the following number to explore the design pattern");
+            Console.WriteLine("1- Singleton Pattern");
+            Console.WriteLine("2- Singleton Thread Safety with lock Pattern");
             string value = Console.ReadLine();
             switch (value)
             {
-                case "S":
+                case "1":
                     Singleton objectA = Singleton.GetInstance;
                     objectA.PrintDetails("This is from Object A");
                     Singleton objectB = Singleton.GetInstance;
@@ -24,7 +26,7 @@ namespace DesignPatterns
                     //Singleton.DerivedSingleton derivedObj = new Singleton.DerivedSingleton();
                     //derivedObj.PrintDetails("From Derived");
                     break;
-                case "ST":
+                case "2":
                     Parallel.Invoke(
                         () => PrintObjectA1Details(),
                         () => PrintObjectB1Details()
