@@ -11,15 +11,26 @@ namespace SingletonPattern
         //Private prop as this will be only initiized with null and make sure only one instance is there.
         private static Singleton instance=null;
         private static int counter = 0;
-
+        private static readonly object obj = new object();
         //This static method will make sure to return on one instance. If already initilized, return that otherwise create one.
         public static Singleton GetInstance
         {
             get
             {
-                if(instance==null)
+                if (instance == null)
                 {
-                    instance = new Singleton();
+                    lock (obj)// lock will allow us to add thread safety. only one thread will enter here.
+                              //but locks are constly, so we should add another null check. line 20
+                    {
+                        /***without lock
+                        We are delaying initilization at this points, this is called delayed initialization.
+                        In other words, it is called as lazy loading and works well for single threaded.
+                        but it won't work well for multi threaded program.***/
+                        if (instance == null)
+                        {
+                            instance = new Singleton();
+                        }
+                    }
                 }
                 return instance;
             }
