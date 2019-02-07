@@ -12,6 +12,7 @@ namespace SingletonPattern
         private static Singleton instance=null;
         private static int counter = 0;
 
+        //This static method will make sure to return on one instance. If already initilized, return that otherwise create one.
         public static Singleton GetInstance
         {
             get
