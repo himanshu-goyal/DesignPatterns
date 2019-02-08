@@ -5,3 +5,13 @@
 	- private constructor helps in preventing any external instantiations of objects and sealed will prevent the class inheritances.
 	- Thread safety: Use lock to make sure only one tread can init the object.
 	- Also make sure to check if instance is null or not before trying lock.
+	- Late init help us in improving performance.
+	- Reduces the memory footprint on start-up.
+	- faster application load.
+	- Eager loading: pre init of the object and keep it ready.
+	- change null to new singleton instance.
+	- change instance property to read only.
+	- remove the initlization in get instance property. 
+	- remove the static object.
+	- CLR takes care the init and take care of thread safety.
+	- We can make Lazy init by using Lazy keyword.

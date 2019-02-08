@@ -28,8 +28,8 @@ namespace DesignPatterns
                     break;
                 case "2":
                     Parallel.Invoke(
-                        () => PrintObjectA1Details(),
-                        () => PrintObjectB1Details()
+                        () => SingletonHelper.PrintObjectA1Details(),
+                        () => SingletonHelper.PrintObjectB1Details()
                         );
 
                     break;
@@ -39,16 +39,5 @@ namespace DesignPatterns
             Console.Read();
         }
 
-        private static void PrintObjectB1Details()
-        {
-            Singleton objectB1 = Singleton.GetInstance;
-            objectB1.PrintDetails("This is from Object B1, Thread Safety");
-        }
-
-        private static void PrintObjectA1Details()
-        {
-            Singleton objectA1 = Singleton.GetInstance;
-            objectA1.PrintDetails("This is from Object A1, Thread Safety");
-        }
     }
 }

@@ -20,7 +20,7 @@ namespace SingletonPattern
                 if (instance == null)
                 {
                     lock (obj)// lock will allow us to add thread safety. only one thread will enter here.
-                              //but locks are constly, so we should add another null check. line 20
+                              //but locks are costly, so we should add another null check. line 20
                     {
                         /***without lock
                         We are delaying initilization at this points, this is called delayed initialization.
