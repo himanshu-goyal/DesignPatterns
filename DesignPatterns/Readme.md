@@ -11,7 +11,7 @@
 	- Eager loading: pre init of the object and keep it ready.
 	- change null to new singleton instance.
 	- change instance property to read only.
-	- remove the initlization in get instance property. 
-	- remove the static object.
+	- Remove the initlization in get instance property. 
+	- Remove the static object.
 	- CLR takes care the init and take care of thread safety.
 	- We can make Lazy init by using Lazy keyword.

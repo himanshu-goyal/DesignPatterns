@@ -31,7 +31,12 @@ namespace DesignPatterns
                         () => SingletonHelper.PrintObjectA1Details(),
                         () => SingletonHelper.PrintObjectB1Details()
                         );
-
+                    break;
+                case "3":
+                    SingletonEager objectAE = SingletonEager.GetInstance;
+                    objectAE.PrintDetails("This is from eager loading, obeject AE");
+                    SingletonEager objectBE = SingletonEager.GetInstance;
+                    objectAE.PrintDetails("This is from eager loading, obeject BE");
                     break;
                 case "D":
                     break;

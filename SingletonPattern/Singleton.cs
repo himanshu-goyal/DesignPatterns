@@ -55,4 +55,42 @@ namespace SingletonPattern
 
         //}
     }
+
+    public sealed class SingletonEager
+    {
+        //Private prop as this will be only initiized with null and make sure only one instance is there.
+        private static readonly SingletonEager instance = new SingletonEager();
+        //Uncomment following to use Lazy keyword
+        //private static readonly Lazy<SingletonEager> instance = new Lazy<SingletonEager>(()=> new SingletonEager()); 
+        private static int counter = 0;
+        //This static method will make sure to return on one instance. If already initilized, return that otherwise create one.
+        public static SingletonEager GetInstance
+        {
+            get
+            {
+                //Uncomment following to use Lazy keyword
+                //return instance.Value;
+                return instance;
+            }
+        }
+
+        //Private construct, this will give us number of object initilized.
+        private SingletonEager()
+        {
+            counter++;
+            Console.WriteLine("Constructor called,Counter value: " + counter.ToString());
+        }
+        public void PrintDetails(string message)
+        {
+            Console.WriteLine(message);
+        }
+
+        //This class was created to understand why we need to seal our base class.
+        //We will create an instance of derived class and we will see that counter will increase to 2
+        //That will viloate out singleton pricipal. 
+        //public class DerivedSingleton : Singleton
+        //{
+
+        //}
+    }
 }
